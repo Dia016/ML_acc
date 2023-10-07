@@ -293,12 +293,26 @@ Classification Report:
    macro avg       0.67      0.62      0.64      1600
 weighted avg       0.74      0.77      0.75      1600
 
-from helper_code import mlplots as ml
-ml.confusion(l_test, predicted, ['low', 'high'], title='Decision Tree Classification')
+import matplotlib.pyplot as plt
+from sklearn.tree import plot_tree
+
+# Create the decision tree classifier (if not already created)
+dtc = DecisionTreeClassifier(max_depth=3, random_state=3)
+
+# Fit the classifier to your training data
+dtc.fit(d_train, l_train)
+
+# Plot the decision tree
+plt.figure(figsize=(12, 8))
+plot_tree(dtc, filled=True, feature_names=['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm'],  
+                            class_names=['setosa', 'versicolor', 'virginica'])
+plt.show()
+
 
 feature_importance = pd.DataFrame(list(zip(d_train.columns, adult_model.feature_importances_)),columns=['Feature', 'Importance'])
 feature_importance = feature_importance.sort_values(by='Importance', ascending=False)
 feature_importance
+
 Feature	Importance
 0	Age	0.388190
 2	CapitalGain	0.297078
