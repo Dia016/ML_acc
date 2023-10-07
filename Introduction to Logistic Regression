@@ -1,0 +1,15 @@
+# Set up Notebook
+
+%matplotlib inline
+
+# Standard imports
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# We do this to ignore several specific warnings
+import warnings
+warnings.filterwarnings("ignore")
+
+sns.set(style="white")
