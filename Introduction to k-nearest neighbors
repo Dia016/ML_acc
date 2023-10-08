@@ -208,17 +208,21 @@ weighted avg       0.98      0.98      0.98        60
 [[21  0  0]
  [ 0 18  0]
  [ 0  1 20]]
-from helper_code import mlplots as ml
-​
-# Call confusion matrix plotting routine
-ml.confusion(l_test, predicted, labels, 'KNN Classification')
 
-Student Exercise
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
 
-In the preceding cells, we generated a classification model for the Iris data. Modify the previous Code cells to make the following changes, and comment on how the performance of the classifier changes.
+#to create heatmap
+plt.figure(figsize=(8,6))
+sns.heatmap(cm,annot=True,fmt="d",cmap="Greys",xticklabels=labels,yticklabels=labels)
+plt.xlabel("Predicted")
+plt.ylabel("True")
+plt.title("confusion matrix-KNN classification")
+plt.show()
 
-Change the number of neighbors to 3, 5, and 9.
-[Back to TOC]
 
 Classification: Adult Data
 We now turn to a more complex data set with which to perform classification by using KNN. We will use the Adult Income Dataset introduced in the previous lesson notebooks.
