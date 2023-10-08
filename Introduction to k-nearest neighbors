@@ -47,6 +47,8 @@ Fundamentally, this algorithm is remarkably simple and is based on the principle
 Note: You are not required to understand the code. Pay more attention to the plot which demonstrates the concept of neighbors.
 
 from matplotlib import cm
+#which is commonly used for specifying colormaps in data visualization
+
 from sklearn.neighbors import NearestNeighbors
 ​
 # Parameters for demonstration
